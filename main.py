@@ -66,7 +66,6 @@ def jogada():
         return
 
 def checVitoria():
-    mostrarTabuleiro()
     for i in range(3): # CHECAGEM HORIZONTAL
         if tabuleiro[i] == [simbJogador, simbJogador, simbJogador]:
             return True
@@ -78,7 +77,6 @@ def checVitoria():
             return True
 
 def checEmpate():
-    mostrarTabuleiro()
     if "-" not in tabuleiro[0]:
         if "-" not in tabuleiro[1]:
             if "-" not in tabuleiro[2]:
@@ -118,10 +116,12 @@ while True:
     jogada()
 
     if checVitoria() == True:
+        mostrarTabuleiro()
         print("\n", simbJogador, "Venceu!\n")
         if recomecar() == False:
             break
     elif checEmpate() == True:
+        mostrarTabuleiro()
         print("\n Empate!\n")
         if recomecar() == False:
             break
